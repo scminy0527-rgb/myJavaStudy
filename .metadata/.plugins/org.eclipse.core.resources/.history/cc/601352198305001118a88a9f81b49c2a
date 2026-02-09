@@ -1,0 +1,46 @@
+package formatTask;
+
+public class FormatTask02 {
+	public static void main(String[] args) {
+//		수학점수 국어점수 영어점수
+//      국어점수, 영어점수, 수학점수를 받아서 서식에 맞게 출력
+//      이름: 이규학
+//      수학:    20점
+//      국어:    40점
+//      영어:    15점
+//      총점:    75점
+		
+//		변수의 선언
+		String name = null;
+		int math = 0;
+		int korean = 0;
+		int english = 0;
+		int totalScore = 0;
+		String scoreStr = null;
+//		과목 이름 변수명
+		String nameTag = null;
+		String mathSubName = null;
+		String koreanSubName = null;
+		String englishSubName = null;
+		
+//		변수의 초기화
+		name = "이규확";
+		math = 17;
+		korean = 32;
+		english = 15;
+		totalScore = math + korean + english;
+		scoreStr = " %10d점\n"; 
+		nameTag = "이름: ";
+		mathSubName = "수학:";
+		koreanSubName = "국어:";
+		englishSubName = "영어:";
+		
+//		출력부
+		System.out.printf("이름: %s\n", name);
+//		문자열 부분을 변수로만 해서 처리 해보기 시도
+		System.out.printf(mathSubName+scoreStr, math);
+		System.out.printf(koreanSubName+scoreStr, korean);
+		System.out.printf(englishSubName+scoreStr, english);
+		System.out.printf("총점:"+scoreStr, totalScore);
+	}
+}

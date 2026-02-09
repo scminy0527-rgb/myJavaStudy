@@ -1,0 +1,31 @@
+package formatTask;
+
+public class FormatTask01 {
+	public static void main(String[] args) {
+//		식을 완성시키십시오
+//		10 + 20 = 30
+//		7 * 8 = 56
+//		6 * 4 = 24
+		
+//		변수 선언 및 초기화 하는 부분
+		int first1 = 10;
+		int first2 = 20;
+		int firstDap = first1 + first2;
+		
+//		동일한 자료 형 에서는 타입을 한번만 적어도 됨
+		int num1 = 30, num2 = 8;
+		
+		int second1 = 7;
+		int second2 = 8;
+//		int secondDap = second1 * second2;
+		
+		int third1 = 6;
+		int third2 = 4;
+		int thirdDap = 24;
+		
+//		출력문
+		System.out.printf("%d + %d = %d\n", first1, first2, firstDap);
+		System.out.printf("%d * %d = %d\n", second1, second2, second1 * second2);
+		System.out.printf("%d * %d = %d\n", third1, third2, thirdDap);
+	}
+}

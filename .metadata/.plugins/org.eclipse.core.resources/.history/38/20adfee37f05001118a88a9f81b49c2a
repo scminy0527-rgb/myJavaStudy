@@ -1,0 +1,8 @@
+package formatTask;
+
+public class FormatTask02 {
+	public static void main(String[] args) {
+//		수학점수 국어점수 영어점수
+		
+	}
+}

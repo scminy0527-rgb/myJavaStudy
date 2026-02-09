@@ -1,0 +1,9 @@
+package castingTest;
+
+public class CastingTask01 {
+	public static void main(String[] args) {
+//		6.37, 3.99, 3
+//		3개의 값을 연산하여 3을 만들기
+	}
+
+}

@@ -1,0 +1,21 @@
+package variableTest;
+
+public class VariableTest {
+	public static void main(String[] args) {
+		int a = 0;
+		float b = 0.0F;
+		double c = 0.0;
+		char d = 'a';
+		boolean e = false;
+		String f = "";
+		String g = null;
+		
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println(e);
+		System.out.println(f);
+		
+	}
+}

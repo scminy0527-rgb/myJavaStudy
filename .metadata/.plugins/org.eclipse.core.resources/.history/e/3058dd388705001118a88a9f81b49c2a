@@ -1,0 +1,14 @@
+package castingTest;
+
+public class CastingTest {
+	public static void main(String[] args) {
+//		자동 형변환
+//		정수 + 정수 = 정수
+		System.out.println(1 + 2);
+		System.out.println(10 / 3);
+		
+		
+//		정수 + 실수 = 실수 (double)
+		System.out.println(2 + 0.5);
+	}
+}

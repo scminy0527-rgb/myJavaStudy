@@ -1,0 +1,22 @@
+package variableTest;
+
+public class VariableTest {
+	public static void main(String[] args) {
+		int a = 0;
+		float b = 0.5F;
+		double c = 0.0;
+		char d = 'a';
+		String e = "ABC";
+		boolean f = true;
+		
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println(e);
+		System.out.println(f);
+		
+		
+		
+	}
+}

@@ -1,0 +1,8 @@
+package castingTest;
+
+public class CastingTest {
+	public static void main(String[] args) {
+//		형변환
+		System.out.println(1+2);
+	}
+}

@@ -1,0 +1,23 @@
+package castingTest;
+
+public class CastingTask01 {
+	public static void main(String[] args) {
+//		6.37, 3.99, 3
+//		3개의 값을 연산하여 3을 만들기
+//		단 모두 한번 씩 사용해야함
+//		변수의 선언
+		double num1 = 0.0, num2 = 0.0;
+		int num3 = 0, result = 0;
+		
+//		초기화 단계 
+		num1 = 6.37;
+		num2 = 3.99;
+		num3 = 3;
+		
+//		강제 형변환 이용해서 계산
+		result = ((int)num1 + (int)num2) / num3;
+		
+//		결과 출력 수정 
+		System.out.printf("결과: %d", result);
+	}
+}

@@ -1,0 +1,8 @@
+package variableTask;
+
+public class VariableTask01 {
+   public static void main(String[] args) {
+//      각 데이터에 맞는 타입 선언 후 출력하기
+//      5, false, 7845.12, B, 자바, 107L
+   }
+}

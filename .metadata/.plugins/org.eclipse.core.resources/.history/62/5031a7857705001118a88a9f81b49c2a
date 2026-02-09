@@ -1,0 +1,89 @@
+package variableTask;
+
+public class VariableTask02 {
+   public static void main(String[] args) {
+//      5, 7845.15, false, B, 85.10F, 자바, S, 98590, D, true, 공백문자
+//      저장공간 2개만 사용해서 모든 값을 출력하기
+//      datas, numbers
+	   int numbers = 0;
+	   char datas = ' ';
+	   numbers = 5;
+	   
+//	   먼저 5 출력
+	   System.out.println(numbers);
+	   
+//	   7845.15출력
+	   numbers = 7;
+	   System.out.print(numbers);
+	   
+	   numbers = 8;
+	   System.out.print(numbers);
+	   
+	   numbers = 4;
+	   System.out.print(numbers);
+	   
+	   numbers = 5;
+	   System.out.print(numbers);
+	   
+	   datas = '.';
+	   System.out.print(datas);
+	   
+	   numbers = 1;
+	   System.out.print(numbers);
+	   
+	   numbers = 5;
+	   System.out.print(numbers);
+	   System.out.print("\n");
+	   
+	   
+	   
+//	   false 출력
+	   datas = 'f';
+	   System.out.print(datas);
+	   
+	   datas = 'a';
+	   System.out.print(datas);
+	   
+	   datas = 'l';
+	   System.out.print(datas);
+	   
+	   datas = 's';
+	   System.out.print(datas);
+	   
+	   datas = 'e';
+	   System.out.print(datas);
+	   
+	   System.out.print('\n');
+	   
+//	  	B 출력
+	   datas = 'B';
+	   System.out.print(datas);
+	   System.out.print("\n");
+	   
+	   
+//	   85.10F 출력
+	   numbers = 8;
+	   System.out.print(numbers);
+	   
+	   numbers = 5;
+	   System.out.print(numbers);
+	   
+	   datas = '.';
+	   System.out.print(datas);
+	   
+	   numbers = 1;
+	   System.out.print(numbers);
+	   
+	   numbers = 0;
+	   System.out.print(numbers);
+	   
+	   datas = 'F';
+	   System.out.print(datas);
+	   
+	   
+	   
+	   
+	   
+	   
+   }
+}

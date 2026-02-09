@@ -1,0 +1,16 @@
+package castingTask;
+
+public class CastingTask02 {
+   public static void main(String[] args) {
+//      "8.43" + 2.59를 더해서 10이 나오도록 출력하기
+//	   초기화
+	   String num1 = "8.43";
+	   double changedNum = 0;
+	   double num2 = 2.59;
+	   
+//	   먼저 문자를 형 변환 해야함
+	   changedNum = Double.parseDouble(num1)
+	   System.out.println(changedNum);
+	   
+   }
+}

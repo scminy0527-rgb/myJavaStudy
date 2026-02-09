@@ -1,0 +1,9 @@
+package variableTask;
+
+public class VariableTask02 {
+   public static void main(String[] args) {
+//      5, 7845.15, false, B, 85.10F, 자바, S, 98590, D, true, 공백문자
+//      저장공간 2개만 사용해서 모든 값을 출력하기
+//      datas, numbers
+   }
+}
