@@ -38,7 +38,8 @@ public class IfTask {
 		isPepsi = selectedItem.equals(pepsi);
 		isMacCol = selectedItem.equals(macCol);
 		
-//		상품 총 가격 계산
+//		선택한상품 검증 및 상품 총 가격 계산
+//		switch 도 가능
 		if(isCoca) {
 			itemPrice = cocaPrice;
 		} else if(isPepsi) {
@@ -48,7 +49,6 @@ public class IfTask {
 		} else {
 			isError = true;
 		}
-		
 		totalPrice = Integer.parseInt(itemNum) * itemPrice;
 		change = myMoney - totalPrice;
 		
