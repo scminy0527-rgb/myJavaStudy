@@ -1,7 +1,0 @@
-package gyuhyeok;
-
-public class GyuHyeok {
-	public static void main(String[] args) {
-		System.out.println("규혁아 화이팅");
-	}
-}
