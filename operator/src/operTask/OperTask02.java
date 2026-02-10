@@ -45,6 +45,7 @@ public class OperTask02 {
 //	   System.out.printf("입력한 동물: %s", likeAnimal);
 	   
 //	   입력한 동물에 따른 각기 다른 메세지 출력
+//	   이런 조건은 불리언 변수 로도 분리 가능함
 	   result = (likeAnimal.equals(cat)) ? catMsg 
 			   : likeAnimal.equals(cow) ? cowMsg
 					   : likeAnimal.equals(dog) ? dogMsg
