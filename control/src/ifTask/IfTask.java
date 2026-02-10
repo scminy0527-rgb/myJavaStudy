@@ -18,13 +18,11 @@ public class IfTask {
 //      거스름돈: 6000원
 		
 //		변수 선언 및 초기화
-		String cocaCola = "코카콜라", pepsi = "펩시", macCol = "맥콜",
-				message = "구매할 상품과 갯수 입력하세요\n(예시) 코카콜라 2";
+		String message = "구매할 상품과 갯수 입력하세요\n(예시) 코카콜라 2";
 		String selectedItem = "", itemNum = "";
 		int cocaPrice = 2000, pepsiPrice = 1500, macColPrice = 1000;
 		int myMoney = 10000, itemPrice = 0, totalPrice = 0, change = 0;
 		
-		boolean isCoca = false, isPepsi = false, isMacCol = false;
 		boolean isBuyAvail = false, isError = false;
 		Scanner sc = new Scanner(System.in);
 		
@@ -33,22 +31,20 @@ public class IfTask {
 		selectedItem = sc.next();
 		itemNum = sc.next();
 		
-//		입력 받은 상품 판단
-		isCoca = selectedItem.equals(cocaCola);
-		isPepsi = selectedItem.equals(pepsi);
-		isMacCol = selectedItem.equals(macCol);
-		
-//		선택한상품 검증 및 상품 총 가격 계산
-//		switch 도 가능
-		if(isCoca) {
+		switch(selectedItem) {
+		case "코카콜라":
 			itemPrice = cocaPrice;
-		} else if(isPepsi) {
+			break;
+		case "펩시":
 			itemPrice = pepsiPrice;
-		} else if(isMacCol) {
+			break;
+		case "맥콜":
 			itemPrice = macColPrice;
-		} else {
+			break;
+		default: 
 			isError = true;
 		}
+		
 		totalPrice = Integer.parseInt(itemNum) * itemPrice;
 		change = myMoney - totalPrice;
 		
