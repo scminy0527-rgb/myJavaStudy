@@ -13,6 +13,8 @@ public class ForTempTest {
 		  int secondLength = 0;
 		  String secondStr = "",
 				  charCount = "",
+				  numbers = "0123456789",
+				  resultStr = "",
 				  secondMsg = "문자 및 반복할 횟수를 입력하세요 (입력 예시) a1b22c357";
 		  boolean nowMakingCount = false;
 		  
@@ -21,6 +23,7 @@ public class ForTempTest {
 		  System.out.println(secondMsg);
 		  secondStr = sc.next();
 		  secondLength = secondStr.length();
+		  
 		  
 //		  입력받은 문자열 각 요소의 char 의 아스키를 비교 해서 횟수면 횟수, 알파벳 이면 알파벳 으로 처리하기
 		  for(int i = 0; i < secondLength; i++) {
@@ -35,6 +38,7 @@ public class ForTempTest {
 					  
 					  for(int j = 0; j<count; j++) {
 						  System.out.print(secondAlpha);
+						  resultStr += secondAlpha;
 					  }
 					  charCount = "";
 					  nowMakingCount = false;
@@ -50,6 +54,7 @@ public class ForTempTest {
 					  int count = Integer.parseInt(charCount);
 					  for(int j = 0; j<count; j++) {
 						  System.out.print(secondAlpha);
+						  resultStr += secondAlpha;
 					  }
 				  }
 			  }
