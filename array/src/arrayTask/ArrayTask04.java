@@ -44,13 +44,13 @@ public class ArrayTask04 {
 //		1. 먼저 연산자 만 추출
 		for(int i = 0; i < susik.length(); i++) {
 			char y = susik.charAt(i);
-			
 			if(yeonsanja.contains(""+y)) {
 				yeonsanArr[yIndex] = y;
 				yIndex++;
 			}
 		}
 		
+//		2. 숫자들을 보관할 배열에 각각 보관
 //		가장 앞에 - 가 온 경우는 0 을 추가로 해서 보정하는거 생각
 //		잘 검증
 //		해당 yeonsanArr 에 있는 모든 원소는 단일 오퍼레이션 (더하기) 로만 되게 원소 바꾸기
@@ -61,11 +61,6 @@ public class ArrayTask04 {
 				continue;
 			}
 			
-//			if(yeonsanArr[i] == '*') {
-//				
-//				
-//			}
-			
 //			숫자를 넣을 때 연산자 - 에서 고려 해서 숫자를 변환하기
 			if(i > 0 && yeonsanArr[i - 1] == '-') {
 				numSusik[i] = -1 * (Double.parseDouble(susikArray[i]));
@@ -74,8 +69,9 @@ public class ArrayTask04 {
 			numSusik[i] = Double.parseDouble(susikArray[i]);
 		}
 		
-//		만약 / 혹은 * 가 여기 식 앞에 있거나 하면 그거도 더하는거 고려해서 바꾸기 (우선 연산 구현)
+//		3. 만약 / 혹은 * 가 여기 식 앞에 있거나 하면 그거도 더하는거 고려해서 바꾸기 (우선 연산 구현)
 		for(int i = 0; i < susikLen - 1; i++) {
+//			0 일 때는 의미 없음 / 오히려 0으로 나누는 불상사 발생
 			if(numSusik[i] == 0) {
 				continue;
 			}
@@ -83,25 +79,27 @@ public class ArrayTask04 {
 //				만약에 해당 숫자가 0 이면 그냥 넘어감
 //				여기서 두 와일 쓰는 개념
 				int tempIdx = i;
+				
+//				곱셈 혹은 나눗셈이 연달아 있는거 처리
 				while(true) {
 //					여기서 tempIdx 도 검증을 해야함
+//					yeonsanArr 구역 넘는 인덱스 참조하는거 방지
 					if(tempIdx == yeonsanArr.length) {
 						break;
 					}
+//					누적 곱 혹은 나누기 빠져나가는 개념
 					if(yeonsanArr[tempIdx] == '+' || yeonsanArr[tempIdx] == '-') {
 						break;
 					}
 					
 					if(yeonsanArr[tempIdx] == '*') {
 						numSusik[i] *=  numSusik[tempIdx + 1];
-						numSusik[tempIdx + 1] = 0;
 					} else {
 						numSusik[i] /=  numSusik[tempIdx + 1];
-						numSusik[tempIdx + 1] = 0;
 					}
+					numSusik[tempIdx + 1] = 0;
 					tempIdx++;
 				}
-				
 			}
 		}
 		
