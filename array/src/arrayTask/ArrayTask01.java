@@ -7,15 +7,21 @@ public class ArrayTask01 {
 		Scanner sc = new Scanner(System.in);
 //      브론즈
 //      1. 1~100까지 배열에 담은 후 홀수만 출력
-		
 		int[] arr1 = new int[100];
+		String arr1List = "[";
 		for(int i = 0; i < arr1.length; i++) {
 			int num = i + 1;
 			arr1[i] = num;
+			arr1List += arr1[i];
+			if(i != arr1.length - 1) {
+				arr1List += ", ";
+			}
 		}
+		arr1List += "]";
 		
 //		테스트: 먼저 리스트에 있는거 출력
 		System.out.println("홀수만 출력하기");
+		System.out.println(arr1List);
 		for(int i = 0; i < arr1.length; i++) {
 			if(arr1[i] % 2 == 0) {
 				continue;
@@ -25,23 +31,26 @@ public class ArrayTask01 {
 		
 		
 //      2. 10~1까지 중 짝수만 배열에 담고 출력
-		int[] arr2 = new int[10];
-		for(int i = 0; i < arr2.length; i++) {
+		int[] arr2 = new int[5];
+		int index2 = 0;
+		for(int i = 0; i < 10; i++) {
 			int num = 10 - i;
-			arr2[i] = num;
+			if(num %2 == 0) {
+				arr2[index2] = num;
+				index2++;
+			}
 		}
 		
 //		출력해보기
 		System.out.println("10~1까지 중 짝수만 배열에 담고 출력");
 		for(int i = 0; i < arr2.length; i++) {
-			if(arr2[i] % 2 == 1) {
-				continue;
-			}
 			System.out.println(arr2[i]);
 		}
 		
 //      3. 1~77까지 중 짝수만 배열에 담고 출력
-		int[] arr3 = new int[38];
+//		갯수를 나중에 알 수도 있는거 정의
+		int[] arr3 = null;
+		arr3 = new int[77 / 2];
 		int index3 = 0;
 		for(int i = 0; i < 77; i++) {
 			int num = i + 1;
@@ -74,20 +83,35 @@ public class ArrayTask01 {
 		}
 		
 //      5개의 정수를 입력 받고 배열에 담은 후 최댓값과 최솟값을 출력
-		
-		
 		int[] numArray = new int[5];
-		int maxNum = 0, minNum = 0;
+		int maxNum = 0, minNum = 0, index = 0;
 		String numArrList = "[";
-		for(int i = 0; i < numArray.length; i++) {
-//			입력 받기
-			System.out.println(i+"번째 인덱스에 들어갈 정수를 입력해주세요 ex) 5");
-			numArray[i] = sc.nextInt();
+		
+//		오류 처리 while 이용해서 하기
+		
+//		for(int i = 0; i < numArray.length; i++) {
+////			입력 받기
+//			System.out.println(i+"번째 인덱스에 들어갈 정수를 입력해주세요 ex) 5");
+//			numArray[i] = sc.nextInt();
+//			
+//			numArrList += numArray[i];
+//			if(i != numArray.length - 1) {
+//				numArrList += ", ";
+//			}
+//		}
+		
+		while(true) {
+			System.out.println(index+"번째 인덱스에 들어갈 정수를 입력해주세요 ex) 5");
+			numArray[index] = sc.nextInt();
 			
-			numArrList += numArray[i];
-			if(i != numArray.length - 1) {
-				numArrList += ", ";
+//			예외 처리 부분을 여기에 넣을 수 있음
+			
+			numArrList += numArray[index];
+			index++;
+			if(index >= 5) {
+				break;
 			}
+			numArrList += ", ";
 		}
 		numArrList += "]";
 		
