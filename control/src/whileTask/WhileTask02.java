@@ -19,13 +19,11 @@ public class WhileTask02 {
 	public static void main(String[] args) {
 //		받는거
 		int total = 0, userInputNum = 0;
-		String numberList = "",
+		String numberList = "입력값: ",
 				message = "정수를 입력해주세요 ex) 10";
-		
 		Scanner sc = new Scanner(System.in);
 		
 		while(true) {
-			
 			System.out.println(message);
 			userInputNum = sc.nextInt();
 			
