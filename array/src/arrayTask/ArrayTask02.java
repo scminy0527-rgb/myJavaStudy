@@ -57,7 +57,6 @@ public class ArrayTask02 {
 		} else {
 			System.out.println("오류! 1 이상의 입력할 숫자의 갯수를 입력해야 합니다.");
 		}
-		
       
 //      2. 사용자가 몇 개를 입력할 지 모를 때,
 //      입력한 모든 값을 배열에 담고, 실수와 정수의 개수를 출력
@@ -74,11 +73,14 @@ public class ArrayTask02 {
 		while(true) {
 //			숫자를 입력
 			System.out.println("리스트에 입력 할 숫자를 입력하세요.");
-			System.out.println("예시: 10, 10.6, 9");
+			System.out.println("예시: 10 또는 10.6 또는 9");
 			System.out.println("입력을 종료 하기 위해서는 '종료' 입력");
 			
 			numStr = sc.nextLine();
-//			여기에서 ra 이런 식의 입력에 대해서 거르는 예외처리문도 추후 필요
+//			여기에서 raoo 이런 식의 입력에 대해서 거르는 예외처리문도 추후 필요
+			
+//			먼저 갯수를 정했다면 numStr 을 입력 함과 동시에 실수 정수 여부를 판별 가능
+//			이렇게 하면 for문 절약 (자원 절약) 가능
 			
 			if(numStr.equals("종료")) {
 				break;
@@ -103,7 +105,6 @@ public class ArrayTask02 {
 			strIndex++;
 		}
 		
-//		테스트 : 배열 출력해보기
 		for(int i = 0; i < strArr.length; i++) {
 			System.out.print(strArr[i] + " ");
 //			정수 실수 여부 판단
