@@ -10,7 +10,6 @@ public class ArrayTask06 {
 		int[] arrData1 = {1, 2, 4, 5, 9};
 		int arrLen1 = arrData1.length;
 		
-		
       
 //      최종 배열 안의 값: {1, 2, 4, 5, 9}
 //      출력 결과: 9 5 4 2 1
@@ -43,7 +42,6 @@ public class ArrayTask06 {
 			System.out.print(arrData1[idx]+" ");
 		}
 		System.out.println();
-		
       
 //      2. 4행 4열의 2차원 배열이 존재할 때
 		int n = 4;
@@ -70,6 +68,7 @@ public class ArrayTask06 {
       		}
       	}
       	
+//      규칙을 가지고 반복문으로 해서 그냥 행렬 만드는거도 가능함
 //      출력
       	for(int i = 0; i < n; i++) {
       		for(int j = 0; j < n; j++) {

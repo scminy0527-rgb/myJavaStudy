@@ -22,6 +22,8 @@ public class ArrayTask04 {
 //      예를 들어 +, -를 구분점으로 자른다면 .split(\\+|\\-)로 전달해야한다.
 //      \\는 제어문자가 아닌 문자열로 인식하기 위함이다.
 		
+//		공백 문자 사라지게 하는건 trim()
+		
 //		사용자한테 수식 입력 받기
 		Scanner sc = new Scanner(System.in);
 		String susik = null, yeonsanja = "+-*/";
@@ -34,8 +36,9 @@ public class ArrayTask04 {
 		System.out.println("계산을 원하는 수식을 입력하세요");
 		System.out.println("예시1) 10 + 7 + 9");
 		System.out.println("예시2) -7 + 8 + 11");
-		susik = sc.nextLine();
+		susik = sc.nextLine().trim();
 		
+//		구분점으로 구분 하는게 핵심
 		susikArray = susik.split("\\+|\\-|\\*|\\/");
 		susikLen = susikArray.length;
 		numSusik = new double[susikLen];
@@ -50,26 +53,53 @@ public class ArrayTask04 {
 			}
 		}
 		
+//		수식배열 임시 출력
+		for(int i = 0; i < susikArray.length; i++) {
+			System.out.printf("결과: '%s'", susikArray[i]);
+		}
+		
 //		2. 숫자들을 보관할 배열에 각각 보관
 //		가장 앞에 - 가 온 경우는 0 을 추가로 해서 보정하는거 생각
+//		-7 + 8 + 5 라면
+//		0 - 7 + 8 + 5 로 놓고 보면 편함
 //		잘 검증
 //		해당 yeonsanArr 에 있는 모든 원소는 단일 오퍼레이션 (더하기) 로만 되게 원소 바꾸기
+//		예시
+//		-7 + 8 + 9 - 7 을 다음 리스트로 생각
+//		[0,-7, 8, 9, -7]
+//		그리고 리스트 모든 원소 총 합 구하기
 		for(int i = 0; i < susikLen; i++) {
-//			System.out.println(i+"인덱스"+susikArray[i]);
 			if(i == 0 && yeonsanArr[0] == '-') {
-				numSusik[0] = 0.0;
-				continue;
+//				- 앞에 공백 문자인 경우에 처리하는 것
+				if(susikArray[i] == "") {
+					numSusik[0] = 0.0;
+					continue;
+				}
+				
 			}
+			
+			double tempDouble = (Double.parseDouble(susikArray[i]));
 			
 //			숫자를 넣을 때 연산자 - 에서 고려 해서 숫자를 변환하기
 			if(i > 0 && yeonsanArr[i - 1] == '-') {
-				numSusik[i] = -1 * (Double.parseDouble(susikArray[i]));
+				numSusik[i] = -1 * tempDouble;
 				continue;
 			}
-			numSusik[i] = Double.parseDouble(susikArray[i]);
+			numSusik[i] = tempDouble;
+		}
+		
+//		중간 체크
+		System.out.println("중간 체크");
+		for(int i = 0; i < susikLen; i++) {
+			System.out.print(numSusik[i]+" ");
 		}
 		
 //		3. 만약 / 혹은 * 가 여기 식 앞에 있거나 하면 그거도 더하는거 고려해서 바꾸기 (우선 연산 구현)
+//		-8 + 5 * 3 * 2 + 5 라면 
+//		1. [-8, 8, 3, 2, 5]
+//		2. [-8, 15, 0, 2, 5]
+//		3. [-8, 30, 0, 0, 5]
+//		그리고 모든 원소 합 구하면 최종 결과 나옴 (우선순위도 고려 가능)
 		for(int i = 0; i < susikLen - 1; i++) {
 //			0 일 때는 의미 없음 / 오히려 0으로 나누는 불상사 발생
 			if(numSusik[i] == 0) {
@@ -104,13 +134,13 @@ public class ArrayTask04 {
 		}
 		
 //		테스트 숫자 반환
-		for(int i = 0; i < susikLen; i++) {
-			System.out.println(numSusik[i]);
-		}
+//		for(int i = 0; i < susikLen; i++) {
+//			System.out.println(numSusik[i]);
+//		}
 //		연산자 프린트
-		for(int i = 0; i < yeonsanArr.length; i++) {
-			System.out.println(yeonsanArr[i]);
-		}
+//		for(int i = 0; i < yeonsanArr.length; i++) {
+//			System.out.println(yeonsanArr[i]);
+//		}
 		
 //		결과 반환
 		for(int i = 0; i < susikLen; i++) {
