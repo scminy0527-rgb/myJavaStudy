@@ -6,7 +6,7 @@ public class MethodTask03 {
 //		단 반드시 배열을 사용해야함
 //      1. 한글을 정수로 바꿔주는 메서드(일공이사 -> 1024)
 		String str = "일공이사", firstResult = null,
-				intStr = "0058", secondResult = null;
+				intStr = "01032574050", secondResult = null;
 		String[] strArr = str.split(""), intArr = null;
 		int[] lotto = null;
 		
@@ -67,13 +67,11 @@ public class MethodTask03 {
 		String word = "공일이삼사오육칠팔구";
 		for(int i = 0; i < arr.length; i++) {
 			int idx = Integer.parseInt(arr[i]);
-//			System.out.println("프린트");
-//			System.out.println(word.charAt(idx));
 			arr[i] = "" + word.charAt(idx);
 		}
 	}
 	
-//	로또 만들어주는 함수
+//	로또 만들어주는 매서드
 	int[] makeLottoNum() {
 //		똑같은 수가 여러번 나오는 거도 감안 해야 함
 		int[] lottoArr = new int[6];
@@ -91,6 +89,7 @@ public class MethodTask03 {
 //			랜덤 특성 상 나온 숫자가 나올 수 있음
 //			따라서 lottoArr 에 현재 만들어진 lottoNum 가 있나 확인 필요
 			if(checkSameNum(lottoArr, lottoNum)) {
+				System.out.println("동일한 수 나왔음");
 				continue;
 			}
 			
