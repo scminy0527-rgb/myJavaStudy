@@ -32,8 +32,59 @@ public class MethodTask04 {
 		String result = null;
 		
 //		System.out.println(userNum);
-		result = mt.doubleToHangel(userNum);
+//		result = mt.doubleToHangel(userNum);
+//		System.out.println(result);
+		result = mt.makeHangelNum(userNum);
 		System.out.println(result);
+	}
+	
+	// 간편 개선 매서드: 나누기 몫 과 나머지로 하는 개념
+	String makeHangelNum(double num) {
+		int[] divGijun = {100, 10};
+		String[] numSeg = null, hangelDanwi = {"백", "십"};
+		String word = "영일이삼사오육칠팔구", sosuStr = "", 
+				doubleStr = "", result = "";
+		boolean doubleFlag = false;
+		// 나누고 난 나머지 담을 임시 변수
+		int tempNum = (int)num;
+		
+		// 소수점 이 있다면 이를 따로 추출하는 부분
+		doubleStr = "" + num;
+		numSeg = doubleStr.split("\\.");
+		if(numSeg.length >= 2) {
+			sosuStr = numSeg[1];
+			doubleFlag = true;
+		}
+		
+		// 여기서는 일백 일십 표현 대신 백, 십 으로만 표현해도 됨
+		for(int i = 0; i < hangelDanwi.length; i++) {
+			int mok = tempNum / divGijun[i];
+			if(mok != 0) {
+				String c = "" + word.charAt(mok);
+				String finalC = c.equals("일") ? "" : c;
+				result += finalC;
+				result += hangelDanwi[i];
+				tempNum %= divGijun[i];
+			}
+		}
+		
+		// 일이 단위 까지 에서 최종 하기 (정수 부분)
+		String il = "" + word.charAt(tempNum);
+		String ilFinal = il.equals("영") ? "" : il;
+		result += ilFinal;
+		
+		// 만약 소수 부분도 있다면 고려
+		if(doubleFlag) {
+			result += "점";
+			for(int i = 0; i < sosuStr.length(); i++) {
+				String c = "" + sosuStr.charAt(i);
+				int idx = Integer.parseInt(c);
+				result += word.charAt(idx);
+			}
+		}
+		
+		// 반환
+		return result;
 	}
 	
 	// 숫자를 한글로 하는 매서드 만들기
