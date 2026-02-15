@@ -3,7 +3,7 @@ package methodTest;
 public class MethodTest2 {
    
    int[] test(int[] data) {
-      data[0] = 20;
+      data = new int[] {20};
       return data;
    }
    
