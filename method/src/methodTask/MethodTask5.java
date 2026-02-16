@@ -68,10 +68,8 @@ public class MethodTask5 {
       
 //      5. 랜덤한 값을 100칸 배열에 담은 후 배열 안의 값 중 홀수의 합만 출력
 //		랜덤값을 만드는 거를 정의
-		for(int i = 0; i < 100; i++) {
-			
-		}
-      
+		mt.makeRandomArr();
+		
 //      6. 연속된 중복 문자 제거하기
 //      입력 예시1)
 //      abbbbacda
@@ -165,5 +163,21 @@ public class MethodTask5 {
 			System.out.printf("'%d' ", arr[i]);
 		}
 		System.out.println();
+	}
+	
+//	랜덤 배열 만들어서 홀수 원소만 출력하는 함수 정의 
+	void makeRandomArr() {
+		int[] numArr = new int[100];
+		for(int i = 0; i < numArr.length; i++) {
+			int num = (int)Math.floor(Math.random() * 100);
+			numArr[i] = num;
+			
+//			홀수 원소 출력
+			if(num % 2 == 1) {
+				System.out.printf("홀수 값(%d 인덱스): %d\n", i, num);
+			}
+		}
+		
+		printArr(numArr);
 	}
 }
