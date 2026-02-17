@@ -1,8 +1,0 @@
-package castingTest;
-
-public class CastingTask01 {
-	public static void main(String[] args) {
-//		6.37, 3.99, 
-	}
-
-}

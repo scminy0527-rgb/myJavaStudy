@@ -1,7 +1,0 @@
-package castingTest;
-
-public class CastingTest02 {
-	public static void main(String[] args) {
-		
-	}
-}
