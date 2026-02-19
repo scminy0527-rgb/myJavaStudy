@@ -38,7 +38,7 @@ public class MethodTask04 {
 		System.out.println(result);
 	}
 	
-	// 간편 개선 매서드: 나누기 몫 과 나머지로 하는 개념
+	// 간편 매서드: 나누기 몫 과 나머지로 하는 개념
 	String makeHangelNum(double num) {
 		int[] divGijun = {100, 10};
 		String[] numSeg = null, hangelDanwi = {"백", "십"};
@@ -48,10 +48,17 @@ public class MethodTask04 {
 		// 나누고 난 나머지 담을 임시 변수
 		int tempNum = (int)num;
 		
+		
+		// 만약 마이너스 면 처리를 하기
+		if(tempNum < 0) {
+			result += "마이너스";
+			tempNum *= -1;
+		}
+		
 		// 소수점 이 있다면 이를 따로 추출하는 부분
-		doubleStr = "" + num;
-		numSeg = doubleStr.split("\\.");
-		if(numSeg.length >= 2) {
+		if(num % tempNum != 0) {
+			doubleStr = "" + num;
+			numSeg = doubleStr.split("\\.");
 			sosuStr = numSeg[1];
 			doubleFlag = true;
 		}

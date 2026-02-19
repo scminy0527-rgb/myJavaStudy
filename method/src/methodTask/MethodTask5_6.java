@@ -28,7 +28,8 @@ public class MethodTask5_6 {
 		System.out.println(result);
 	}
 	
-	// 함수 정의
+	// 매서드 정의
+	// result 에 담으면서 result 에 contains 를 이용 해서 이미 있는지 보는 역 생각 하는 거도 가능
 	String deleteDup(String str) {
 		String result = "";
 		char tempChar = ' ';

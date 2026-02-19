@@ -40,7 +40,7 @@ public class MethodTask5 {
 //      반환 2
 		System.out.println("문장을 입력하세요. ex) apple");
 		str3 = sc.nextLine();
-		System.out.println("입력한 문장에서 찾을 문장을 입력하세요 ex) p");
+		System.out.println("입력한 문장에서 찾을 글자를 입력하세요 ex) p");
 		sc3 = sc.nextLine();
 		
 //		System.out.println(str3+" "+sc3);
@@ -68,7 +68,8 @@ public class MethodTask5 {
       
 //      5. 랜덤한 값을 100칸 배열에 담은 후 배열 안의 값 중 홀수의 합만 출력
 //		랜덤값을 만드는 거를 정의
-		mt.makeRandomArr();
+		int result5 = mt.makeRandomArr();
+		System.out.println(result5);
 		
 //      6. 연속된 중복 문자 제거하기
 //      입력 예시1)
@@ -102,15 +103,16 @@ public class MethodTask5 {
 	String getNumAtStr(String str) {
 		String result = "", numStr = "0123456789";
 		for(int i = 0; i < str.length(); i++) {
-			String c = "" + str.charAt(i);
-			if(numStr.contains(c)) {
+			
+			char c = str.charAt(i);
+			if(c >= '1' && c <= '9') {
 				result += c;
 			}
 		}
-		
-//		System.out.println(result);
 		return result;
 	}
+	// 아니면 '1' 보다 크거나 같고 '9' 보다 작거나 같으면 도 적용
+	
 	
 	// 사용자가 찾고자 하는 글자를 입력하면 몇개 잇는지 결과 반환
 	int getCharCount(String str, String sc) {
@@ -128,6 +130,8 @@ public class MethodTask5 {
 	}
 	
 	// 원소 5개 배열에서 가장 작은 값과 두번째로 작은 값 찾기
+	// 가장 작은 원소가 나오면 0번째 인덱스와 해당 인덱스 값 바꿔치기
+	// 그리고 그 다음 인덱스 들 가지고 비교 해서 1 인덱스로 옮기는 개념
 	int[] getMinMinNum(int[] numArr) {
 		int len = numArr.length,
 				tempMinNum = numArr[0], tempIdx = 0;
@@ -166,8 +170,9 @@ public class MethodTask5 {
 	}
 	
 //	랜덤 배열 만들어서 홀수 원소만 출력하는 함수 정의 
-	void makeRandomArr() {
+	int makeRandomArr() {
 		int[] numArr = new int[100];
+		int result = 0;
 		for(int i = 0; i < numArr.length; i++) {
 			int num = (int)Math.floor(Math.random() * 100);
 			numArr[i] = num;
@@ -175,9 +180,11 @@ public class MethodTask5 {
 //			홀수 원소 출력
 			if(num % 2 == 1) {
 				System.out.printf("홀수 값(%d 인덱스): %d\n", i, num);
+				result += num;
 			}
 		}
 		
-		printArr(numArr);
+//		printArr(numArr);
+		return result;
 	}
 }
