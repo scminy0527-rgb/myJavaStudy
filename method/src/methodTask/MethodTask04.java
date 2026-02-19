@@ -23,31 +23,44 @@ public class MethodTask04 {
 //      -237.27
 //      마이너스이백삼십칠점이십칠
 		
+		// 억 단위 -> 만단위 -> 천단위
+		
 //		사용자한테 입력 받기
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("원하시는 숫자를 입력하세요");
 		System.out.println("예시: 10 또는 55.6 또는 -7.96");
-		double userNum = sc.nextDouble();
+		String userNum = sc.nextLine();
 		String result = null;
 		
 //		System.out.println(userNum);
 //		result = mt.doubleToHangel(userNum);
 //		System.out.println(result);
-		result = mt.makeHangelNum(userNum);
+//		result = mt.makeHangelNum(userNum);
+		result = mt.makeNumberByHangel(userNum);
 		System.out.println(result);
 	}
 	
-	// 간편 매서드: 나누기 몫 과 나머지로 하는 개념
-	String makeHangelNum(double num) {
-		int[] divGijun = {100, 10};
-		String[] numSeg = null, hangelDanwi = {"백", "십"};
-		String word = "영일이삼사오육칠팔구", sosuStr = "", 
-				doubleStr = "", result = "";
+	// make simple hangel
+	String makeNumberByHangel(String num) {
+		String result = "";
+		int[] bigGijun = {100000000, 10000};
+		String[] danwi = {"억","만"}, numSeg = null;
+		String word = "영일이삼사오육칠팔구", sosuStr = "";
+				
 		boolean doubleFlag = false;
 		// 나누고 난 나머지 담을 임시 변수
-		int tempNum = (int)num;
+		int tempNum = 0;
 		
+		// 소수 판별
+		if(num.contains(".")) {
+			numSeg = num.split("\\.");
+			sosuStr = numSeg[1];
+			doubleFlag = true;
+			tempNum = (int)Double.parseDouble(num);
+		} else {
+			tempNum = Integer.parseInt(num);
+		}
 		
 		// 만약 마이너스 면 처리를 하기
 		if(tempNum < 0) {
@@ -55,21 +68,74 @@ public class MethodTask04 {
 			tempNum *= -1;
 		}
 		
-		// 소수점 이 있다면 이를 따로 추출하는 부분
-		if(num % tempNum != 0) {
-			doubleStr = "" + num;
-			numSeg = doubleStr.split("\\.");
+		// 여기서는 일백 일십 표현 대신 백, 십 으로만 표현해도 됨
+		for(int i = 0; i < danwi.length; i++) {
+			int mok = tempNum / bigGijun[i];
+			if(mok != 0) {
+				
+				result += makeAnotherkDanwi(mok, danwi[i] == "억");
+				result += danwi[i];
+				tempNum %= bigGijun[i];
+			}
+		}
+		// 나머지 부분
+		result += makeAnotherkDanwi(tempNum);
+		
+		if(doubleFlag) {
+			result += "점";
+			for(int i = 0; i < sosuStr.length(); i++) {
+				String c = "" + sosuStr.charAt(i);
+				System.out.println(sosuStr);
+				int idx = Integer.parseInt(c);
+				result += word.charAt(idx);
+			}
+		}
+		
+		return result;
+	}
+	
+	// 간편 매서드: 나누기 몫 과 나머지로 하는 개념
+	// 숫자를 문자열 형태로 받는 괘랄한 형태
+	String makeHangelNum(String num) {
+		int[] divGijun = {100000000, 10000, 1000, 100, 10};
+		String[] numSeg = null, hangelDanwi = {"억","만", "천", "백", "십"};
+		String word = "영일이삼사오육칠팔구", sosuStr = "", 
+				doubleStr = "", result = "";
+		boolean doubleFlag = false;
+		// 나누고 난 나머지 담을 임시 변수
+		int tempNum = 0;
+		
+		// 소수 판별
+		if(num.contains(".")) {
+			numSeg = num.split("\\.");
 			sosuStr = numSeg[1];
 			doubleFlag = true;
+			tempNum = (int)Double.parseDouble(num);
+		} else {
+			tempNum = Integer.parseInt(num);
+		}
+		
+		// 만약 마이너스 면 처리를 하기
+		if(tempNum < 0) {
+			result += "마이너스";
+			tempNum *= -1;
 		}
 		
 		// 여기서는 일백 일십 표현 대신 백, 십 으로만 표현해도 됨
 		for(int i = 0; i < hangelDanwi.length; i++) {
 			int mok = tempNum / divGijun[i];
-			if(mok != 0) {
+			if(mok != 0 && mok < 10) {
 				String c = "" + word.charAt(mok);
-				String finalC = c.equals("일") ? "" : c;
+				String finalC = (c.equals("일") && !hangelDanwi[i].equals("억") )? "" : c;
 				result += finalC;
+				result += hangelDanwi[i];
+				tempNum %= divGijun[i];
+			}
+			
+			// 십만 백만 찬만 의 경우
+			if(mok >= 10) {
+				System.out.println("십만 넘어가는 특수 경우");
+				result += makeAnotherkDanwi(mok);
 				result += hangelDanwi[i];
 				tempNum %= divGijun[i];
 			}
@@ -85,12 +151,47 @@ public class MethodTask04 {
 			result += "점";
 			for(int i = 0; i < sosuStr.length(); i++) {
 				String c = "" + sosuStr.charAt(i);
+				System.out.println(sosuStr);
 				int idx = Integer.parseInt(c);
 				result += word.charAt(idx);
 			}
 		}
 		
 		// 반환
+		return result;
+	}
+	
+	// 천 백 십 단위 숫자를 출력하는 매서드
+	String makeAnotherkDanwi(int num, boolean isAdd) {
+		int[] divGijun = {1000, 100, 10};
+		String[] hangelDanwi = {"천", "백", "십"};
+		String result = "";
+		String word = "영일이삼사오육칠팔구";
+		
+		int tempNum = num;
+		
+		for(int i = 0; i < hangelDanwi.length; i++) {
+			int mok = tempNum / divGijun[i];
+			if(mok != 0 && mok < 10) {
+				String c = "" + word.charAt(mok);
+				String finalC = c.equals("일") ? "" : c;
+				result += finalC;
+				result += hangelDanwi[i];
+				tempNum %= divGijun[i];
+			}
+		}
+		
+		// 일이 단위 까지 에서 최종 하기 (정수 부분)
+		String il = "" + word.charAt(tempNum);
+		String ilFinal = il.equals("영") ? "" : il;
+//		if(il.equals("일") && isAdd) {
+//			ilFinal = il;
+//		} else {
+//			ilFinal = "";
+//		}
+		
+		result += ilFinal;
+		
 		return result;
 	}
 	
