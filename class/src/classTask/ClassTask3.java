@@ -23,6 +23,7 @@ package classTask;
 // 5. PlayerB 가진 모든 카드를 출력
 
 class PlayerA {
+	// 만약 처음에 카드 들을 알면 선언과 동시에 값을 넣어서 초기화도 가능함
 	int[] cards;
 	String name;
 	
@@ -44,7 +45,7 @@ class PlayerA {
 	
 	// 카드를 추출
 	int[] getPlayerBCard(PlayerB playerB) {
-		int[] playerBCards = playerB.bCards, result = null;
+		int[] playerBCards = playerB.bCards;
 		int minNum = playerBCards[0], maxNum = playerBCards[0];
 		for(int i = 1; i < playerBCards.length; i++) {
 			int cardNum = playerBCards[i];
@@ -54,7 +55,13 @@ class PlayerA {
 		return new int[] {minNum, maxNum};
 	}
 	
-	// 카드를 포켓에 집어넣는 매서드
+	// 남 에게서 카드를 가져오는 매서드 구현
+	void getCardsAndInsert(int[] cards, PlayerB playerB) {
+		insertCard(cards);
+		playerB.removeCard(cards);
+	}
+	
+	// 카드를 포켓에 집어넣는 매서드 그리고 상대방 에게서도 카드를 제거하기
 	// A는 상대로부터 무조건 2개의 카드만 뽑을 수 있음
 	void insertCard (int[] cards) {
 		int len = cards.length;
@@ -117,7 +124,7 @@ class PlayerB {
 		this.bCards = new int[5];
 	}
 	
-	// a의 카드 중 모든 홀수를 추출
+	// 상대방 a의 카드 중 모든 홀수를 추출
 	int[] getPlayerACards (PlayerA playerA) {
 		int[] aCards = playerA.cards;
 		int[] tempResult = new int[aCards.length],
@@ -141,7 +148,13 @@ class PlayerB {
 		return result;
 	}
 	
-	// 추출된 카드를 자신의 포켓에 집어넣는 매서드
+	// 남 에게서 카드를 가져오는 매서드 구현
+	void getCardsAndInsert(int[] cards, PlayerA playerA) {
+		insertCard(cards);
+		playerA.removeCard(cards);
+	}
+	
+	// 카드를 자신의 포켓에 집어넣는 매서드
 	void insertCard (int[] cards) {
 		int len = cards.length;
 		int[] tempCards = new int[this.bCards.length + len];
@@ -173,12 +186,11 @@ class PlayerB {
 			}
 		}
 		
-		// tempCards 로 옮기기
+		// -1을 제외한 나머지 카드를 tempCards 로 옮기기
 		for(int i = 0; i < this.bCards.length; i++) {
 			if(this.bCards[i] == -1) {
 				continue;
 			}
-			
 			tempCards[tempIdx] = this.bCards[i];
 			tempIdx++;
 		}
@@ -202,17 +214,18 @@ public class ClassTask3 {
 	   // a 차례
 	   System.out.println("플레이어A는 플레이어 B 의 카드를 뽑습니다.");
 	   temp = playerA.getPlayerBCard(playerB);
-	   playerA.insertCard(temp);
-	   playerB.removeCard(temp);
+	   playerA.getCardsAndInsert(temp, playerB);
+//	   playerA.insertCard(temp);
+//	   playerB.removeCard(temp);
 	   ct.printArr(playerA.cards);
 	   ct.printArr(playerB.bCards);
 	   
 	   // b 차례
 	   System.out.println("플레이어B는 플레이어 A의 카드를 뽑습니다.");
 	   temp = playerB.getPlayerACards(playerA);
-//	   ct.printArr(temp);
-	   playerB.insertCard(temp);
-	   playerA.removeCard(temp);
+	   playerB.getCardsAndInsert(temp, playerA);
+//	   playerB.insertCard(temp);
+//	   playerA.removeCard(temp);
 	   ct.printArr(playerA.cards);
 	   ct.printArr(playerB.bCards);
 	   
@@ -224,7 +237,7 @@ public class ClassTask3 {
 	   ct.printArr(playerB.bCards);
    }
    
-// 배열 출력하는 기능 매서드
+// 	배열 출력하는 기능 매서드 (검증용)
 	void printArr(int[] arr) {
 		System.out.println("검증 실행");
 		System.out.print("[");
