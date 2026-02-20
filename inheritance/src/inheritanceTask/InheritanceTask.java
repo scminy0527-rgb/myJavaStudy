@@ -33,9 +33,7 @@ class PersonTask {
 	void eat() {
 		System.out.println("세 끼를 먹는다");
 	}
-	
 }
-//   
 //   StudentTask
 //   인스타아이디
 //   각 메서드 출력
@@ -102,15 +100,13 @@ class EmployeeTask extends PersonTask{
 	void eat() {
 		System.out.println("야식을 먹는다");
 	}
-	
 }
-
 
 public class InheritanceTask {
    public static void main(String[] args) {
 	   // 객체화 하기
 	   PersonTask person = new PersonTask("이규학", 20, "경기도 하남시", "010-0000-0000");
-	   StudentTask student = new StudentTask("장보고", 18, "서울시 종로구", "010-1234-5678", "my_insta.com");
+	   StudentTask student = new StudentTask("장보고", 18, "서울시 종로구", "010-1234-5678", "my_insta@");
 	   EmployeeTask employee = new EmployeeTask("약소훈", 25, "서울시 서초구", "010-8888-5678", 50000);
 	   
 	   person.work();
