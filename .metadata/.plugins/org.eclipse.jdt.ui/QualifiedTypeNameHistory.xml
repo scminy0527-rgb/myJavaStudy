@@ -9,4 +9,13 @@
     <fullyQualifiedTypeName name="classTest.StaticTest"/>
     <fullyQualifiedTypeName name="java.security.DomainCombiner"/>
     <fullyQualifiedTypeName name="classTask.SuperCar"/>
+    <fullyQualifiedTypeName name="classTask.PlayerA"/>
+    <fullyQualifiedTypeName name="classTask.PlayerB"/>
+    <fullyQualifiedTypeName name="inheritanceTest.SuperCar"/>
+    <fullyQualifiedTypeName name="inheritanceTask.StudentTask"/>
+    <fullyQualifiedTypeName name="inheritanceTask.EmployeeTask"/>
+    <fullyQualifiedTypeName name="access1.Access1"/>
+    <fullyQualifiedTypeName name="inheritanceTest.Dongmul"/>
+    <fullyQualifiedTypeName name="inheritanceTask.Phone2G"/>
+    <fullyQualifiedTypeName name="inheritanceTask.Phone3G"/>
 </qualifiedTypeNameHistroy>
