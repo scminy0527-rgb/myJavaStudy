@@ -79,7 +79,7 @@ public class MethodTask04 {
 			}
 		}
 		// 나머지 부분
-		result += makeAnotherkDanwi(tempNum);
+		// result += makeAnotherkDanwi(tempNum);
 		
 		if(doubleFlag) {
 			result += "점";
@@ -135,7 +135,7 @@ public class MethodTask04 {
 			// 십만 백만 찬만 의 경우
 			if(mok >= 10) {
 				System.out.println("십만 넘어가는 특수 경우");
-				result += makeAnotherkDanwi(mok);
+				// result += makeAnotherkDanwi(mok);
 				result += hangelDanwi[i];
 				tempNum %= divGijun[i];
 			}
