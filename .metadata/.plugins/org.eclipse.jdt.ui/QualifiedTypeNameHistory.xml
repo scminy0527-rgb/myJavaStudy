@@ -18,4 +18,7 @@
     <fullyQualifiedTypeName name="inheritanceTest.Dongmul"/>
     <fullyQualifiedTypeName name="inheritanceTask.Phone2G"/>
     <fullyQualifiedTypeName name="inheritanceTask.Phone3G"/>
+    <fullyQualifiedTypeName name="java.awt.geom.Arc2D.Double"/>
+    <fullyQualifiedTypeName name="castingPractice.Doebutsu"/>
+    <fullyQualifiedTypeName name="inheritancePractice.SolveMinus"/>
 </qualifiedTypeNameHistroy>
