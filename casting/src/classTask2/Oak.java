@@ -31,7 +31,7 @@ public class Oak extends Monster {
 		System.out.printf("당신은 %s을(를) 공격합니다!!!\n", this.type);
 	}
 
-	String oakAttck() {
+	public String oakAttck() {
 		System.out.println("오크가 달려든다!");
 		return this.dropItem;
 	}

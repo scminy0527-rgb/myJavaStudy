@@ -34,7 +34,14 @@ public class Charactor {
 		this.hp = hp;
 	}
 	
-//	초기화 블럭
+	public String[] getItemList() {
+		return itemList;
+	}
+	public void setItemList(String[] itemList) {
+		this.itemList = itemList;
+	}
+
+	//	초기화 블럭
 	{
 		this.hp = 100;
 	}
@@ -60,14 +67,27 @@ public class Charactor {
 		System.out.println(item+"을(를) 얻는다.");
 		
 //		아이템을 전리품 상자에 담는거도 생각
+		insertItem(item);
 		
 	}
 	
 //	전리품 조회 매서드
 	
 //	전리품 넣는 매서드
-	void insertItem() {
+	void insertItem(String item) {
+		String[] result = null;
+		// 빈 배열인 경우
+		if(itemList == null) {
+			itemList = new String[] {item};
+			return;
+ 		}
 		
+		int arrLen = itemList.length;
+		result = new String[arrLen + 1];
+		
+		for(int i = 0; i < arrLen; i++) {
+			result[i] = itemList[i];
+		}
+		result[arrLen] = item;
 	}
-	
 }
