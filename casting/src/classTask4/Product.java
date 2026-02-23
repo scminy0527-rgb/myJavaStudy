@@ -38,4 +38,10 @@ public class Product {
 		System.out.println("재고 수량 : " + this.stock);
 		System.out.println();
 	}
+	
+//	해당 상품의 갯수 줄이는거 구현
+	public void reduceStock() {
+		this.stock--;
+	}
+	
 }

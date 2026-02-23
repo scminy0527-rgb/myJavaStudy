@@ -44,10 +44,21 @@ public class ClassTask4 {
 		
 //		상품 추가
 		market.addProduct(new Product("램카드", 100000, 5));
-		market.addProduct(new Product("사과", 3000, 6));
+		market.addProduct(new Product("사과", 3000, 4));
 		market.addProduct(new Product("치킨공식 식권", 89000, 10));
 		
 //		상품 출력
+		market.printProducts();
+		
+//		고객 만들기
+		MarketMember member = new MarketMember("이규학", "010-1234-5678", 10000);
+		MarketNonMember mem2 = new MarketNonMember("홍길동", "010-0000-0000", 9999999);
+//		member.setCoupon(12);
+		
+		market.sellProduct(member, "사과");
+		market.sellProduct(mem2, "램카드");
+		member.showPoint();
+		mem2.showPoint();
 		market.printProducts();
 		
 	}
