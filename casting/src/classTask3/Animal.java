@@ -25,8 +25,11 @@ public class Animal {
 	}
 	
 //	먹이 섭취
-	void eatFood() {
+	public void eatFood() {
 		System.out.println("먹이를 먹습니다.");
 	}
 	
+//	public void speak() {
+//		System.out.println("동물이 웁니다.");
+//	}
 }

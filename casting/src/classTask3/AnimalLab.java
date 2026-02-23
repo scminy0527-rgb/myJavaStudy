@@ -14,7 +14,7 @@ public class AnimalLab {
 	public void setLabName(String labName) {
 		this.labName = labName;
 	}
-	
+	 
 //	동물 체크하는 매서드
 	public void checkAnimal(Animal animal){
 		String name = null, type = null;

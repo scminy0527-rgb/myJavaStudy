@@ -7,7 +7,7 @@ public class Omivore extends Animal {
 	}
 	
 	@Override
-	void eatFood() {
+	public void eatFood() {
 		System.out.println("잡식성으로 뭐든지 잘먹습니다.");
 	}
 }

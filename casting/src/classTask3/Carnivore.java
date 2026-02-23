@@ -7,7 +7,7 @@ public class Carnivore extends Animal {
 	}
 	
 	@Override
-	void eatFood() {
+	public void eatFood() {
 		System.out.println("육식동물 답게 야채를 먹습니다.");
 	}
 }
