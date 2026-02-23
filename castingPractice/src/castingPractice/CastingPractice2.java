@@ -38,7 +38,11 @@ public class CastingPractice2 {
 		}
 		
 		// 다운 캐스팅 (자식 안경)
+		// 업 캐스팅 된 거만 다시 다운캐스팅 가능
 		SuperCar s = (SuperCar) carArr[1];
 		s.sportMode();
+		
+		double mok = Math.sqrt(25);
+		System.out.println((int)mok - mok);
 	}
 }
