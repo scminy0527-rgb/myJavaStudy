@@ -49,5 +49,4 @@ public class MarketMember extends Member {
 	public void buyByCoupon() {
 		this.coupon -= 10;
 	}
-	
 }

@@ -21,4 +21,14 @@
     <fullyQualifiedTypeName name="java.awt.geom.Arc2D.Double"/>
     <fullyQualifiedTypeName name="castingPractice.Doebutsu"/>
     <fullyQualifiedTypeName name="inheritancePractice.SolveMinus"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.lang.Long"/>
+    <fullyQualifiedTypeName name="classTask2.Charactor"/>
+    <fullyQualifiedTypeName name="classTask2.Yojung"/>
+    <fullyQualifiedTypeName name="classTask3.AnimalLab"/>
+    <fullyQualifiedTypeName name="classTask3.Harbivore"/>
+    <fullyQualifiedTypeName name="classTask4.Market"/>
+    <fullyQualifiedTypeName name="classTask4.Product"/>
+    <fullyQualifiedTypeName name="classTask4.MarketMember"/>
+    <fullyQualifiedTypeName name="classTask4.MarketNonMember"/>
 </qualifiedTypeNameHistroy>

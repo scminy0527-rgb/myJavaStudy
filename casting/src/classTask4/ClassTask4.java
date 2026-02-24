@@ -17,7 +17,7 @@ public class ClassTask4 {
 //     - 상품 등록은 최대 5개까지만 할 수 있다.
 //     (즉, 6개를 전달해도 앞에 5개 상품만 등록된다)
 //     - 마트에 같은 이름의 상품은 등록할 수 없다.
-//
+
 //  3. 포인트 적립 메서드
 //     - 회원이 각각 포인트를 가지도록
 //     - 비회원은 5%
@@ -53,7 +53,6 @@ public class ClassTask4 {
 //		고객 만들기
 		MarketMember member = new MarketMember("이규학", "010-1234-5678", 10000);
 		MarketNonMember mem2 = new MarketNonMember("홍길동", "010-0000-0000", 9999999);
-//		member.setCoupon(12);
 		
 		market.sellProduct(member, "사과");
 		market.sellProduct(mem2, "램카드");
