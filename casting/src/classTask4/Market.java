@@ -84,8 +84,17 @@ public class Market {
 		}
 	}
 	
+//	매서드는 한번에 하나의 기능
+//	물건을 판매 (재고 감소)
 //	가게에서 상품을 판매 하는 매서드
 //	상품 판매를 위해서는 누가 무엇을 살 것인지 알아야 함
+//	상품 판매를 한다면 이건 현금 으로 판매
+//	판매 라는건 : 사야 할 물건과 이에 대한 가격을 가지고 사는거
+//	사용자가 가지고 있는 돈이 충분한지 확인
+	public void payment() {
+		
+	}
+	
 	public void sellProduct(Member member, String productName) {
 		 int pdIdx = checkProduct(productName),
 				 salePrice = 0;
@@ -132,4 +141,7 @@ public class Market {
 		 }
 		 member.addPoint(salePrice);
 	}
+	
+	// 쿠폰 구매도 따로 만듬
+	
 }

@@ -31,4 +31,11 @@
     <fullyQualifiedTypeName name="classTask4.Product"/>
     <fullyQualifiedTypeName name="classTask4.MarketMember"/>
     <fullyQualifiedTypeName name="classTask4.MarketNonMember"/>
+    <fullyQualifiedTypeName name="codingTest.CodingTest006"/>
+    <fullyQualifiedTypeName name="abstractTest.Electronics"/>
+    <fullyQualifiedTypeName name="interfaceTest.InterfaceTest"/>
+    <fullyQualifiedTypeName name="interfaceTest.PetAdaptor"/>
+    <fullyQualifiedTypeName name="interfaceTask.Activity"/>
+    <fullyQualifiedTypeName name="interfaceTask.Student"/>
+    <fullyQualifiedTypeName name="interfaceTask.PeopleAdaptor"/>
 </qualifiedTypeNameHistroy>
