@@ -12,6 +12,7 @@ public class LambdaTask1 {
 			System.out.println();
 		};
 		
+//		두번째 매서드 정의
 		ChangeStr cs = (str, c, idx) -> {
 			String result = "";
 			int len = str.length();

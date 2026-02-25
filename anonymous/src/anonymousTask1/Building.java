@@ -9,17 +9,18 @@ public class Building {
 		Jamsil jamsil = new Jamsil();
 		Yeoksam yeoksam = new Yeoksam();
 		Sinchon sinchon = new Sinchon();
+		String americano = "아메리카노";
 		
 		Form gangnamForm = new Form() {
 			
 			@Override
 			public String[] getMenu() {
-				return new String[] {"아메리카노"};
+				return new String[] {americano};
 			}
 			
 			@Override
 			public String[] eventMenu() {
-				return new String[] {"아메리카노"};
+				return new String[] {americano};
 			}
 		};
 		
@@ -31,7 +32,7 @@ public class Building {
 			
 			@Override
 			public String[] getMenu() {
-				return new String[] {"아메리카노", "아이스크림", "프라푸치노"};
+				return new String[] {americano, "아이스크림", "프라푸치노"};
  			}
 			
 			@Override
@@ -44,12 +45,12 @@ public class Building {
 			
 			@Override
 			public String[] getMenu() {
-				return new String[] {"아메라키노", "녹차라떼", "애플민트티"};
+				return new String[] {americano, "녹차라떼", "애플민트티"};
 			}
 			
 			@Override
 			public String[] eventMenu() {
-				return new String[] {"아메리카노"};
+				return new String[] {americano};
 			}
 		});
 		
@@ -57,7 +58,7 @@ public class Building {
 			
 			@Override
 			public String[] getMenu() {
-				return new String[] {"아메리카노", "자몽허니블랙티", "자몽에이드"};
+				return new String[] {americano, "자몽허니블랙티", "자몽에이드"};
 			}
 			
 			@Override
@@ -68,9 +69,13 @@ public class Building {
 		
 //		각 지점을 판매
 //		판매 라는 매서드는 한번만 쓰는게 아니라 매번 사용되어야 함
+		System.out.println("1. 강남점 에서 아메리카노 구매");
 		gangnam.sell("아메리카노", gangnam);
-		jamsil.sell("디카페인 아메리카노", jamsil);
+		System.out.println("2. 잠실점 에서 디카페인 아메리카노 구매");
+		jamsil.sell("아이스크림", jamsil);
+		System.out.println("3. 역삼점 에서 아메리카노 구매");
 		yeoksam.sell("아메리카노", yeoksam);
-		sinchon.sell("라떼", sinchon);
+		System.out.println("4. 신촌점 에서 자몽에이드 구매");
+		sinchon.sell("자몽에이드", sinchon);
 	}
 }
