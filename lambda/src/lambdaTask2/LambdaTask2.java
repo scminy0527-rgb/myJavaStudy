@@ -8,19 +8,17 @@ public class LambdaTask2 {
       
 //      출력 예시
 //      "abcabc"
-		PrintJump pj = new PrintJump() {
-			@Override
-			public String jumpString(String str, int idx) {
-				String result = "";
-				for(int i = 0; i < str.length(); i++) {
-					if((i + 1) % idx == 0) {
-						continue;
-					}
-					result += str.charAt(i);
+		PrintJump pj = (str, idx) -> {
+			String result = "";
+			for(int i = 0; i < str.length(); i++) {
+				if((i + 1) % idx == 0) {
+					continue;
 				}
-				return result;
+				result += str.charAt(i);
 			}
+			return result;
 		};
+		
 		System.out.println(pj.jumpString("abcdabcd", 4));
       
 //      2) 문자열과 문자형을 전달하면 찾은 문자열의 총 갯수에 해당 인덱스에 해당하는 글자를 반환(리턴) 메서드
@@ -29,19 +27,16 @@ public class LambdaTask2 {
 //      출력 결과
 //      "c"
 		
-		FindChar fc = new FindChar() {
-			@Override
-			public String findChar(String str, char c) {
-				String result = null;
-				int count = 0;
-				for(char wc : str.toCharArray()) {
-					if(wc == c) {
-						count++;
-					}
+		FindChar fc = (str, c) -> {
+			String result = null;
+			int count = 0;
+			for(char wc : str.toCharArray()) {
+				if(wc == c) {
+					count++;
 				}
-				result = "" + str.charAt(count);
-				return result;
 			}
+			result = count == 0 ? result = "" + -1 : "" + str.charAt(count);
+			return result;
 		};
 		System.out.println(fc.findChar("abcdabcd", 'a'));
       
@@ -57,9 +52,8 @@ public class LambdaTask2 {
 				String result = "";
 				for(char c : str.toCharArray()) {
 //					해당 문자가 result 에 없을 때에만 넣기
-					if(result.indexOf("" + c) < 0) {
-						result += c;
-					}
+					if(result.contains("" + c)) continue;
+					result += c;
 				}
 				return result;
 			}
@@ -73,18 +67,15 @@ public class LambdaTask2 {
       
 //      출력 예시
 //      "987654321"
-		
-		Reverse rs = new Reverse() {
-			@Override
-			public String reverseStr(String str) {
-				String result = "";
-				int len = str.length();
-				for(int i = 0; i < len; i++) {
-					result += str.charAt(len - i - 1);
-				}
-				return result;
+		Reverse rs = (str) -> {
+			String result = "";
+			int len = str.length();
+			for(int i = 0; i < len; i++) {
+				result += str.charAt(len - i - 1);
 			}
+			return result;
 		};
+		
 		System.out.println(rs.reverseStr("123456789"));
 	}
 }
