@@ -14,7 +14,7 @@ public class LambdaTask3 {
 //  주어진 소문자(a~z) 범위라 가정한다.
 //  주어진 암호를 원래 문자열을 복원하시오.
 //
-//  "1051081111181011069711897"   
+//  "1051081111181011069711897"
 	public static void main(String[] args) {
 		LambdaTask3 lt = new LambdaTask3();
 		CheckDistance cd = (str, find) -> {
@@ -33,16 +33,6 @@ public class LambdaTask3 {
 			
 //			1. split 된 가장 첫번째 원소는 고려 안함
 //			2. split 된 리스트 중 두번째 원소 부터 마지막 원소까지의 총 길이 판단
-			
-//			출력
-			for(int i = 1; i < tempLen; i++) {
-				isStart = true;
-				int distance = temp[i].length();
-				System.out.print(distance + " ");
-				if(i == tempLen - 1) break;
-				System.out.print("-> ");
-			}
-			
 //			3. 꼬리 부분에 aaaaa 라고 나오는 예외 처리를 마무리
 //			abcdababefdaa 라고 넣으면 3 -> 1 -> 4 -> 0 이 나와야 함
 //			뒤에서 부터 find 가 몇 개인지 세기
@@ -54,6 +44,18 @@ public class LambdaTask3 {
 				} else {
 					break;
 				}
+			}
+			
+//			출력
+			for(int i = 1; i < tempLen; i++) {
+				isStart = true;
+				int distance = temp[i].length();
+				if(i == tempLen - 1 && findCount == 0)break;
+				System.out.print(distance + " ");
+				if(i == tempLen - 1) break;
+				
+				if(i == tempLen - 2 && findCount == 0)break;
+				System.out.print("-> ");
 			}
 			
 			if(isStart && findCount > 1) {
@@ -77,6 +79,24 @@ public class LambdaTask3 {
 		};
 		cd.checkDistance("abcdababefda", "a");
 		
+//		2번에 필요한 부수 기능 정의
+		CheckType checkType = (c) -> {
+			int type = 0;
+			switch(c) {
+			case '9':
+				type = 2;
+				break;
+			case '1':
+				type = 3;
+				break;
+			default:
+				type = 3;
+				break;
+			}
+			
+			return type;
+		};
+		
 //		2번 정의 
 		Solve solve = (str) -> {
 			String result = "", temp = "";
@@ -86,24 +106,8 @@ public class LambdaTask3 {
 //			범위: 97 ~ 122
 //			만약 문자열을 맞닥뜨렸을 때 첫 숫자가 1 이면 세자리
 //			9 라면 2자리 정수
-//			단위로 끊어서 생각하기
-//			105
-//			108
-//			111
-//			99
 			
-			switch(str.charAt(0)) {
-			case '9':
-				standard = 2;
-				break;
-			case '1':
-				standard = 3;
-				break;
-			default:
-				standard = 3;
-				break;
-			}
-			
+			standard = checkType.checkType(str.charAt(0));
 			for(int i = 0; i < strLen; i++) {
 				temp += str.charAt(i);
 				count++;
@@ -116,22 +120,11 @@ public class LambdaTask3 {
 					count = 0;
 					
 					if(i == strLen - 1) break;
-					switch(str.charAt(i + 1)) {
-					case '9':
-						standard = 2;
-						break;
-					case '1':
-						standard = 3;
-						break;
-					default:
-						standard = 3;
-						break;
-					}
+					standard = checkType.checkType(str.charAt(i + 1));
 				}
 			}
 			return result;
 		};
-		
 		System.out.println(solve.resolve("1051081111181011069711897"));
 	}
 	
