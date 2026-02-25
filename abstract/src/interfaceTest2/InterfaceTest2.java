@@ -30,6 +30,11 @@ public class InterfaceTest2 {
 	}
 	
 	public static void main(String[] args) {
+		InterfaceTest2 lab = new InterfaceTest2();
+		Bear bear = new Bear();
+		Rebbit rebbit = new Rebbit();
 		
+		lab.checkAnimal(bear);
+		lab.checkAnimal(rebbit);
 	}
 }
