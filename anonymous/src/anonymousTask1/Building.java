@@ -1,11 +1,14 @@
 package anonymousTask1;
 
+// 무료 인곳 아닌곳을 마커 인터페이스로 설정
+// 매장에 무언가를 판매 수행할 때 판단
+
 public class Building {
 	public static void main(String[] args) {
-		Starbucks gangnam = new Starbucks();
-		Starbucks jamsil = new Starbucks();
-		Starbucks yeoksam = new Starbucks();
-		Starbucks sinchon = new Starbucks();
+		Gnagnam gangnam = new Gnagnam();
+		Jamsil jamsil = new Jamsil();
+		Yeoksam yeoksam = new Yeoksam();
+		Sinchon sinchon = new Sinchon();
 		
 		Form gangnamForm = new Form() {
 			
@@ -65,9 +68,9 @@ public class Building {
 		
 //		각 지점을 판매
 //		판매 라는 매서드는 한번만 쓰는게 아니라 매번 사용되어야 함
-		gangnam.sell();
-		jamsil.sell();
-		yeoksam.sell();
-		sinchon.sell();
+		gangnam.sell("아메리카노", gangnam);
+		jamsil.sell("디카페인 아메리카노", jamsil);
+		yeoksam.sell("아메리카노", yeoksam);
+		sinchon.sell("라떼", sinchon);
 	}
 }

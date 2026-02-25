@@ -35,17 +35,30 @@ public class Starbucks {
 		
 	}
 	
-	public void sell() {
-		if(eventMenu == null) {
-//			이벤트가 현재 없는 매장
-			System.out.println("판매 완료");
-		} else {
-//			이벤트 중인거 불러오기
-			String[] eventMenu = this.getEventMenu();
-			for(int i = 0; i < eventMenu.length; i++) {
-				System.out.print(eventMenu[i] + " ");
+//	어느 지점에서 어떤걸 판매 중인지 봐야지 뭘 세일 하는지 알 수 있음
+	public void sell(String menu, Starbucks starbucks) {
+		String[] menus = this.getMenu();
+		boolean isSell = false;
+		for(int i = 0; i < menus.length; i++) {
+			if(menus[i].equals(menu)) {
+				isSell = true;
+				if(starbucks instanceof EventMarker) {
+					if(menu.equals("아메리카노")) {
+						System.out.println("무료 행사~");
+					} else {
+						System.out.println("판매 완료");
+					}
+					break;
+				} else {
+					System.out.println("판매 완료");
+					break;
+				}
 			}
-			System.out.println("는 무료 행사 진행중");
- 		}
+		}
+		
+		
+		if(!isSell) {
+			System.out.println("판매 준비중");
+		}
 	}
 }
