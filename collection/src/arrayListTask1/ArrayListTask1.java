@@ -1,6 +1,7 @@
 package arrayListTask1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ArrayListTask1 {
 	public static void main(String[] args) {
@@ -15,8 +16,11 @@ public class ArrayListTask1 {
 		
 //		실습
 //		50 뒤에 500을 삽입
-		index = datas.indexOf(50);
-		datas.add(index + 1, 500);
+		if(datas.contains(50)) {
+			index = datas.indexOf(50);
+			datas.add(index + 1, 500);
+		}
+		
 		System.out.println("실습 1");
 		System.out.println(datas);
 		
@@ -24,8 +28,11 @@ public class ArrayListTask1 {
 //		1. 인덱스로 삭제하기 (값 모름)
 		System.out.println();
 		System.out.println("실습 2");
-		index = datas.indexOf(80);
-		datas.remove(index);
+		
+		if(datas.contains(80)) {
+			index = datas.indexOf(80);
+			datas.remove(index);
+		}
 		System.out.println(datas);
 		
 //		문제속에 답이 있다.....
@@ -34,7 +41,17 @@ public class ArrayListTask1 {
 //		2. 값으로 삭제하기 (값 알음)
 		System.out.println();
 		System.out.println("실습 3");
-		datas.remove((Integer)60);
+		if(datas.contains(60)) {
+//			그냥 60으로 넘기면 인덱스로 인식을 하게 됨
+//			이건 객체 로서 반환이 되기에 
+//			정수 -> 정수 Integer 객체 형태로 변환
+			datas.remove(Integer.valueOf(60));
+		}
+		System.out.println(datas);
+		
+		
+		System.out.println(datas.size());
+		datas.sort(null);
 		System.out.println(datas);
 	}
 }
