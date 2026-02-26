@@ -16,7 +16,7 @@ public class LambdaTask3 {
 //
 //  "1051081111181011069711897"
 	public static void main(String[] args) {
-		LambdaTask3 lt = new LambdaTask3();
+//		LambdaTask3 lt = new LambdaTask3();
 		CheckDistance cd = (str, find) -> {
 			String[] temp = null;
 			int tempLen = 0, findCount = 0;

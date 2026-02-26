@@ -23,11 +23,13 @@ public class SortArr {
 		for(int i = 0; i < len - 1; i++) {
 			int min = result[i];
 			int idx = i, temp = 0;
-			for(int j = i + 1; j < len; j++) {
-				int num = result[j];
+			for(int j = 1; j < len - i; j++) {
+				System.out.println(i + " : " + (j + i));
+				
+				int num = result[j + i];
 				if(num < min) {
 					min = num;
-					idx = j;
+					idx = j + i;
 				}
 			}
 			temp = result[i];
