@@ -41,14 +41,20 @@ public class ArrayListTask1 {
 //		2. 값으로 삭제하기 (값 알음)
 		System.out.println();
 		System.out.println("실습 3");
-		if(datas.contains(60)) {
+		try {
+			if(datas.contains(60)) {
 //			그냥 60으로 넘기면 인덱스로 인식을 하게 됨
 //			이건 객체 로서 반환이 되기에 
 //			정수 -> 정수 Integer 객체 형태로 변환
-			datas.remove(Integer.valueOf(60));
+				datas.remove(Integer.valueOf(60));
+			}
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("인덱스 범위 초과");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		System.out.println(datas);
-		
 		
 		System.out.println(datas.size());
 		datas.sort(null);

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="methodTest.MethodTest"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="classTest.StaticTest"/>
-    <fullyQualifiedTypeName name="java.security.DomainCombiner"/>
-    <fullyQualifiedTypeName name="classTask.SuperCar"/>
-    <fullyQualifiedTypeName name="classTask.PlayerA"/>
-    <fullyQualifiedTypeName name="classTask.PlayerB"/>
-    <fullyQualifiedTypeName name="inheritanceTest.SuperCar"/>
     <fullyQualifiedTypeName name="inheritanceTask.StudentTask"/>
     <fullyQualifiedTypeName name="inheritanceTask.EmployeeTask"/>
     <fullyQualifiedTypeName name="access1.Access1"/>
@@ -60,4 +52,12 @@
     <fullyQualifiedTypeName name="lambdaTask2.FindChar"/>
     <fullyQualifiedTypeName name="lambdaTask2.Reverse"/>
     <fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="exceptionTest.BadwordException"/>
+    <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="arrayList.task.DBConnecter"/>
 </qualifiedTypeNameHistroy>

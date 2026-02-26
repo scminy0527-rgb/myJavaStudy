@@ -48,5 +48,4 @@ public class ObjectTest {
 		return "ObjectTest [name=" + name + "]";
 	}
 	
-	
 }
