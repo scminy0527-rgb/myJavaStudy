@@ -8,6 +8,7 @@ public class User {
 	private String name;
 	private String password;
 	private String phone;
+	private boolean isOverThirty;
 	
 //	기본 및 초기화 생성자
 	public User() {;}
@@ -43,13 +44,21 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	public boolean isOverThirty() {
+		return isOverThirty;
+	}
+	public void setOverThirty(boolean isOverThirty) {
+		this.isOverThirty = isOverThirty;
+	}
 	
-//	오브젝트 재정의
+	//	오브젝트 재정의
 //	toString 정의
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password + ", phone=" + phone + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", phone=" + phone + ", isOverThirty="
+				+ isOverThirty + "]";
 	}
+	
 	
 	@Override
 	public int hashCode() {

@@ -6,6 +6,8 @@ public class UserField {
 	public ArrayList<User> users = DBConnecter.users;
 	public final int KEY = 300;
 	public static String session;
+	public static String important;
+	public static String temp;
 //	1. 회원가입
 //	- id : x,
 //	- name, password, phone
@@ -53,6 +55,13 @@ public class UserField {
 		if(dbUser != null) {
 			String encodedPw = encode(user.getPassword());
 			if(encodedPw.equals(dbUser.getPassword())) {
+//				여기서 유저가 30일 넘었는지 확인
+//				if(dbUser.isOverThirty()) {
+//					System.out.println("비번 변경 해야 합니다.");
+//					temp = dbUser.getId();
+//					return null;
+//				}
+				
 				System.out.println("로그인 성공, 환영합니다.");
 //				db 에 있는 해당 유저를 진짜로 반환 해야 함
 				session = dbUser.getId();
@@ -123,45 +132,118 @@ public class UserField {
 		}
 	}
 	
-//	비밀번호 변경
+//	비밀번호 엄밀 검증 기능
+	public void checkPasswordImportant(String password) {
+		if(session != null) {
+			User dbUser = checkId(session);
+			if(dbUser != null) {
+				important = dbUser.getPassword().equals(encode(password)) ? dbUser.getId(): null;
+			}
+		}
+	}
+	
+//	비밀번호 변경 (마이페이지)
+//	- 먼저 자신의 비밀번호 입력 해서 자신이 맞는지 확인
+//	- 만약 비밀번호 일치 (검증) 됬다면 자신이 바꿀 비밀번호를 입력한걸 받아서 저장
+	public void changePassword(String password) {
+//		이러한 거는 현재 세션이 유효 할 때만 (정상적인 로그인상태) 진행하기
+		if(session != null && (session.equals(important))) {
+			User dbUser = checkId(session);
+			String encodedPassword = encode(password);
+			dbUser.setPassword(encodedPassword);
+			
+			important = null;
+			System.out.println("비밀번호 변경 성공 ^^");
+			
+		} else {
+			System.out.println("비번 변경 위한 인증 실패...");
+		}
+	}
+	
+	public void update(User user) {
+		User userInDB = checkId(user.getId());
+		if(userInDB != null) {
+			userInDB.setPassword(encode(user.getPassword()));
+			userInDB.setOverThirty(false);
+		}
+	}
+	
+//	public boolean update(String password, String newPassord) {
+//		User foundUser = checkId(session);
+//		if(foundUser.getPassword())
+//		
+//		return false;
+//	}
+	
+	
+	
+//	30일 만료 비밀번호
+	
 	
 //	인증번호 전송
-	
 //	인증번호 확인
 	
 	public static void main(String[] args) {
 //		3. 로그아웃
 		
-		
 //		4. 회원 탈퇴
-//		5. 비밀번호 변경(비밀번호 변경 30일)
+//		5. 비밀번호 변경(마이페이지)
 //		5. 비밀번호 변경(비밀번호 변경 30일)
 //		7. 인증번호 전송
 //		8. 인증번호 확인
 		UserField uf = new UserField();
 		User user1 = new User("hong123", "홍길동", "1234", "010-1234-1234");
 		User user2 = new User("hong123", "김길홍", "1234", "010-4567-4567");
+		User user3 = new User("cjfals1015", "기무라세종", "1234", "010-0000-0000");
 		
 		
 		uf.join(user1);
 		uf.join(user2);
+		
 		System.out.println(uf.users);
 		
 		System.out.println("로그인 수행");
 //		로그인을 위해 일부가 담긴 User
 		User tempForLogin = new User("hong123", null, "4554", null);
 		User tempForLogin2 = new User("hong123", null, "1234", null);
+		User pwChangeTest = new User("hong123", null, "egg0527", null);
+		User pwChangeTest2 = new User("hong123", null, "0527486", null);
+		
+		
 		User tempForLogin3 = new User("cjfals1015", null, "1234", null);
 		System.out.println(uf.login(tempForLogin));
 		System.out.println(uf.login(tempForLogin2));
 		System.out.println(uf.login(tempForLogin3));
 		
+//		화면단에서 비밀번호를 바꾸는 과정....
+//		사용자 정보 변경, 비밀번호 변경 처럼 민감 동작을 하기 위해 한번 더 비밀번호 인증 하기
+		uf.checkPasswordImportant("1234");
+//		비번 변경
+		uf.changePassword("egg0527");
 		uf.logout();
+		User userUser = uf.login(pwChangeTest);
+		System.out.println(userUser);
 		uf.logout();
-		System.out.println(uf.login(tempForLogin2));
-		System.out.println(uf.users);
-		uf.deleteUser();
-		System.out.println(uf.users);
 		
+		
+		userUser.setOverThirty(true);
+		
+		
+//		로그인 수행 과정
+		User loginUser = uf.login(pwChangeTest);
+		if(loginUser != null && loginUser.isOverThirty()) {
+			System.out.println("30일 지나서 비번 변경");
+			uf.update(pwChangeTest2);
+		}
+		
+		uf.logout();
+		System.out.println(uf.login(pwChangeTest2));
+		
+//		uf.logout();
+//		uf.logout();
+//		System.out.println(uf.login(tempForLogin2));
+//		System.out.println(uf.users);
+//		uf.deleteUser();
+//		System.out.println(uf.users);
 	}
 }
