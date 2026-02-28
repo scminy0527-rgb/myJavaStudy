@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="inheritanceTask.StudentTask"/>
-    <fullyQualifiedTypeName name="inheritanceTask.EmployeeTask"/>
-    <fullyQualifiedTypeName name="access1.Access1"/>
-    <fullyQualifiedTypeName name="inheritanceTest.Dongmul"/>
-    <fullyQualifiedTypeName name="inheritanceTask.Phone2G"/>
-    <fullyQualifiedTypeName name="inheritanceTask.Phone3G"/>
-    <fullyQualifiedTypeName name="java.awt.geom.Arc2D.Double"/>
     <fullyQualifiedTypeName name="castingPractice.Doebutsu"/>
     <fullyQualifiedTypeName name="inheritancePractice.SolveMinus"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
@@ -51,7 +44,6 @@
     <fullyQualifiedTypeName name="lambdaTask2.RemoveDup"/>
     <fullyQualifiedTypeName name="lambdaTask2.FindChar"/>
     <fullyQualifiedTypeName name="lambdaTask2.Reverse"/>
-    <fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
@@ -60,4 +52,12 @@
     <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="arrayList.task.DBConnecter"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="java.security.KeyStore.Entry"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
+    <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
 </qualifiedTypeNameHistroy>
