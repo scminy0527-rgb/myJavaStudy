@@ -23,8 +23,6 @@ public class HashSetTest2 {
 //		출력은 잡히는대로 들고옴
 		System.out.println(mbtiType);
 		
-		Character.par
-		
 //		값을 가져 오려면 문법이나 이터레이터 사용해야함
 //		빠른 for문: 향상된 for문
 		for(String mbti: mbtiType) {
@@ -48,7 +46,5 @@ public class HashSetTest2 {
 	      ArrayList<Integer> datas =new ArrayList<Integer>(Arrays.asList(10, 20, 30, 40, 10, 20, 30, 40));
 	      datas = new ArrayList<Integer>(new HashSet<Integer>(datas));
 	      System.out.println(datas);
-		
-		
 	}
 }

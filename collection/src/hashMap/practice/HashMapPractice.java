@@ -2,7 +2,6 @@ package hashMap.practice;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -19,6 +18,7 @@ public class HashMapPractice {
 		dataMap.put("student_4", 55);
 		dataMap.put("student_4", 55);
 		dataMap.put("student_4", 55);
+		dataMap.put("student_5", 95);
 		dataMap.put("student_4", 55);
 		
 //		순서에 상관 없이 담김
@@ -42,7 +42,6 @@ public class HashMapPractice {
 				itor.remove();
 			}
 		}
-		
 		System.out.println(dataMap);
 	}
 }
