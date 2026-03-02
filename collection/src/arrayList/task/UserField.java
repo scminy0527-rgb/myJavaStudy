@@ -1,6 +1,21 @@
 package arrayList.task;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Properties;
+import java.util.Scanner;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMessage.RecipientType;
+import javax.mail.internet.MimeMultipart;
 
 public class UserField {
 	public ArrayList<User> users = DBConnecter.users;
@@ -178,9 +193,94 @@ public class UserField {
 	
 	
 //	30일 만료 비밀번호
+	public String makeVerifyNum() {
+		String numStr = "";
+		for(int i = 0; i < 6; i++) {
+			int num = (int)Math.floor(Math.random()*10);
+			numStr += num;
+		}
+		
+		System.out.println(numStr);
+		return numStr;
+	}
 	
 	
 //	인증번호 전송
+	public void sendVerifyNumber(String numStr) {
+		final String bodyEncoding = "UTF-8"; //콘텐츠 인코딩
+        
+        //원하는 메일 제목 작성
+        String subject = "인증번호";
+        
+        String randomNumStr = "";
+        
+        
+        //보낸 이메일 작성
+        String fromEmail = "scminy0527@gmail.com";
+        String fromUsername = "신철민";
+        
+        String toEmail = "cjfals1015@naver.com"; // 콤마(,)로 여러개 나열
+        
+        //도메인 사용할 필요 없다
+        //앱비밀번호
+        final String username = "scminy0527@gmail.com";        
+        final String password = "qouv jppt mjtn rqxx";
+        
+        // 메일에 출력할 텍스트
+        String html = null;
+        StringBuffer sb = new StringBuffer();
+        sb.append("<h3>안녕하세요 인증번호 입니다.</h3>\n");
+        String numVerify = "<h4> 인증번호: " + numStr + " <h4>";
+        sb.append(numVerify);    
+        html = sb.toString();
+        
+        // 메일 옵션 설정
+        Properties props = new Properties();    
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        
+        try {
+          // 메일 서버  인증 계정 설정
+          Authenticator auth = new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+              return new PasswordAuthentication(username, password);
+            }
+          };
+          
+          // 메일 세션 생성
+          Session session = Session.getDefaultInstance(props, auth);
+          
+          // 메일 송/수신 옵션 설정
+          Message message = new MimeMessage(session);
+          message.setFrom(new InternetAddress(fromEmail, fromUsername));
+          message.setRecipients(RecipientType.TO, InternetAddress.parse(toEmail, false));
+          message.setSubject(subject);
+          message.setSentDate(new Date());
+          
+//          // 메일 콘텐츠 설정
+          Multipart mParts = new MimeMultipart();
+          MimeBodyPart mTextPart = new MimeBodyPart();
+          MimeBodyPart mFilePart = null;
+ //    
+//          // 메일 콘텐츠 - 내용
+          mTextPart.setText(html, bodyEncoding, "html");
+          mParts.addBodyPart(mTextPart);
+//                
+//          // 메일 콘텐츠 설정
+          message.setContent(mParts);
+     
+          // 메일 발송
+          Transport.send( message );
+          
+        } catch ( Exception e ) {
+          e.printStackTrace();
+        }
+	}
+	
 //	인증번호 확인
 	
 	public static void main(String[] args) {
@@ -191,6 +291,8 @@ public class UserField {
 //		5. 비밀번호 변경(비밀번호 변경 30일)
 //		7. 인증번호 전송
 //		8. 인증번호 확인
+		Scanner sc = new Scanner(System.in);
+		
 		UserField uf = new UserField();
 		User user1 = new User("hong123", "홍길동", "1234", "010-1234-1234");
 		User user2 = new User("hong123", "김길홍", "1234", "010-4567-4567");
@@ -238,6 +340,24 @@ public class UserField {
 		
 		uf.logout();
 		System.out.println(uf.login(pwChangeTest2));
+		
+		uf.makeVerifyNum();
+		
+//		인증번호
+		String verifyNum = uf.makeVerifyNum();
+		uf.sendVerifyNumber(verifyNum);
+		
+		System.out.println("인증번호를 입력하세요");
+		
+		while(true) {
+			String num = sc.nextLine();
+			if(num.equals(verifyNum)) {
+				System.out.println("인증 성공");
+				break;
+			} else {
+				System.out.println("인증 실패");
+			}
+		}
 		
 //		uf.logout();
 //		uf.logout();
