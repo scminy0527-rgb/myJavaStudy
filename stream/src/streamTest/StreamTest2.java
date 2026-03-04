@@ -20,7 +20,6 @@ public class StreamTest2 {
       
 //      System.out.println(str);
       
-      
 //      mapToObj: 기본 자료형 -> 클래스형 자료형으로 형변환시켜주는 스트림 메서드
       
       String data = "ABCDEF";
@@ -33,9 +32,6 @@ public class StreamTest2 {
          .collect(Collectors.joining(""));
       
       System.out.println(str2);
-      
-      
-      
    }
 }
 
