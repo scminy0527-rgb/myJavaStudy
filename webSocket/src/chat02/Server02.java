@@ -16,7 +16,7 @@ public class Server02 {
 		String clientMessage = null, serverMessage = null;
 		System.out.println("서버가 시작되었습니다. 클라아언트를 기다리는 중....");
 		try(
-			ServerSocket serverSocket = new ServerSocket(1100);	
+			ServerSocket serverSocket = new ServerSocket(1100);
 			Socket socket = serverSocket.accept();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));

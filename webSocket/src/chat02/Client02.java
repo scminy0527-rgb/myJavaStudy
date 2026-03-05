@@ -13,7 +13,7 @@ public class Client02 {
 	public static void main(String[] args) {
 //		ip, port 누구의 아이피, 누구의 포트인 지 (접속 할)
 //		192.168.161.230
-		String serverIp = "192.168.161.230";
+		String serverIp = "10.62.232.102";
 		String clientMessage = null, serverMessage = null;
 		int port = 1100;
 		
