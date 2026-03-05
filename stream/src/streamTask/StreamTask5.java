@@ -30,10 +30,6 @@ public class StreamTask5 {
 //      김영희, 골프_야구, 운동 선수는 나의 꿈
 //      흰둥이, 개발_축구_농구, 개발도 운동도 다 잘해요!
 //
-//
-
-
-//      
 
 		
 		ArrayList<String> strList = new ArrayList<String>();
