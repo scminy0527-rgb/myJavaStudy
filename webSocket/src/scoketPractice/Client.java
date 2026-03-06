@@ -1,46 +1,38 @@
-package ncsPractice;
+package scoketPractice;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Server {
+public class Client {
 	public static void main(String[] args) {
-		String serverMsg = null, clientMsg = null;
-//		1. 소켓부터 내놓아야함
+		String clientMsg = null, serverMsg = null;
+		int port = 1100;
+		String ip = "192.168.219.101";
+		
+		System.out.println("서버에 연결 준비");
 		
 		try(
-				ServerSocket serverSocket = new ServerSocket(1100);
-				Socket socket = serverSocket.accept();
-				
+				Socket socket = new Socket(ip, port);
 				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-				
 				Scanner sc = new Scanner(System.in);
 				){
 			
-			
-//			사용자한테 메세지를 보내기
-			System.out.println("서버 개설 성공... 클라이언트 연결 성공");
+			System.out.println("서버에 연결 완료");
 			while(true) {
-//				사용자가 보낸 메세지 읽기
-				clientMsg = bufferedReader.readLine();
-				System.out.println("[사용자]: " + clientMsg);
-				
-				System.out.println("사용자한테 보낼 메세지 입력");
-				serverMsg = sc.nextLine();
-				bufferedWriter.write(serverMsg + "\n");
+				System.out.println("서버에 보낼 메세지를 입력하세요");
+				clientMsg = sc.nextLine();
+				bufferedWriter.write(clientMsg + "\n");
 				bufferedWriter.flush();
-				
+				System.out.println("[클라이언트]: " + clientMsg);
+				serverMsg = bufferedReader.readLine();
 				System.out.println("[서버]: " + serverMsg);
 			}
-			
-			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
