@@ -14,7 +14,6 @@ public class CodingTest001 {
         String newBefore = before.chars().sorted().mapToObj(c -> "" + (char)c).collect(Collectors.joining(""));
         String newAfter = after.chars().sorted().mapToObj(c -> "" + (char)c).collect(Collectors.joining(""));
         
-        
         return newBefore.equals(newAfter) ? 1 : 0;
     }
 }
