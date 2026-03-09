@@ -22,7 +22,7 @@ public class Client {
 				){
 			System.out.println("서버와 연결");
 			
-			ClientThread clientThread  = new ClientThread(input);
+			ClientThread clientThread = new ClientThread(input);
 			Thread thread1 = new Thread();
 			thread1.start();
 			
