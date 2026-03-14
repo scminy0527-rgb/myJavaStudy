@@ -13,7 +13,6 @@ public class CodingTest016 {
 		
 		ct.solution(my_string1);
 		ct.solution(my_string2);
-		
 	}
 	
 	public String[] solution(String my_string) {
@@ -24,7 +23,6 @@ public class CodingTest016 {
         
         strArr = my_string.split(" ");
         strList = Arrays.asList(strArr);
-        
         
         result = strList.stream()
         .filter(str -> !str.equals(""))
