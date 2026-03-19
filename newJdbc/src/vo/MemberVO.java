@@ -25,6 +25,20 @@ public class MemberVO {
 		this.memberRecommenderEmail = memberRecommenderEmail;
 	}
 	
+	public MemberVO(String memberEmail, String memberPassword, String memberAddress) {
+		this.memberEmail = memberEmail;
+		this.memberPassword = memberPassword;
+		this.memberAddress = memberAddress;
+	}
+	
+//	SELECT ID, MEMBER_EMAIL, MEMBER_ADDRESS, MEMBER_RECOMMENDER_EMAIL
+	public MemberVO(long id, String memberEmail, String memberAddress, String memberRecommenderEmail) {
+		this.id = id;
+		this.memberEmail = memberEmail;
+		this.memberAddress = memberAddress;
+		this.memberRecommenderEmail = memberRecommenderEmail;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -58,7 +72,7 @@ public class MemberVO {
 	
 	@Override
 	public String toString() {
-		return "TempMemberVO [id=" + id + ", memberEmail=" + memberEmail + ", memberPassword=" + memberPassword
+		return "MemberVO [id=" + id + ", memberEmail=" + memberEmail + ", memberPassword=" + memberPassword
 				+ ", memberAddress=" + memberAddress + ", memberRecommenderEmail=" + memberRecommenderEmail + "]";
 	}
 	
